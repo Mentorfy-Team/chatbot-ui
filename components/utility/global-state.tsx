@@ -85,7 +85,7 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
   const [chatSettings, setChatSettings] = useState<ChatSettings>({
     model: "gpt-4-1106-preview",
-    prompt: "You are a helpful AI assistant.",
+    prompt: "Você é um assistente de IA útil.",
     temperature: 0.5,
     contextLength: 4000,
     includeProfileContext: true,
@@ -215,7 +215,7 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
         model: (homeWorkspace?.default_model || "gpt-4-1106-preview") as LLMID,
         prompt:
           homeWorkspace?.default_prompt ||
-          "You are a friendly, helpful AI assistant.",
+          "Você é um assistente de IA útil.",
         temperature: homeWorkspace?.default_temperature || 0.5,
         contextLength: homeWorkspace?.default_context_length || 4096,
         includeProfileContext: homeWorkspace?.include_profile_context || true,

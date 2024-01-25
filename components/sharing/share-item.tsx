@@ -18,6 +18,7 @@ import {
 } from "../ui/dropdown-menu"
 import { WithTooltip } from "../ui/with-tooltip"
 import { AddToWorkspace } from "./add-to-workspace"
+import { TranslateContentType } from "../sidebar/sidebar-data-list"
 
 interface ShareItemProps {
   user: User | null
@@ -137,10 +138,11 @@ export const ShareItem: FC<ShareItemProps> = ({
       <CardHeader className="space-y-2 pb-4">
         <CardDescription>
           {user?.id === item?.user_id && user
-            ? `You created this ${contentType.slice(0, -1)}`
+            ? `Você criou esse ${TranslateContentType(contentType).slice(0, -1)}`
             : `${
-                contentType.charAt(0).toUpperCase() + contentType.slice(1, -1)
-              } created by ${username || "Anonymous"}`}
+                TranslateContentType(contentType).charAt(0).toUpperCase() +
+                TranslateContentType(contentType).slice(1, -1)
+              } criado por ${username || "Anonymous"}`}
         </CardDescription>
       </CardHeader>
 
@@ -164,11 +166,10 @@ export const ShareItem: FC<ShareItemProps> = ({
                 display={
                   <div>
                     {!user?.id
-                      ? `Sign up for Chatbot UI to continue this ${contentType.slice(
-                          0,
-                          -1
-                        )}.`
-                      : `Use this ${contentType.slice(0, -1)} in a workspace.`}
+                      ? `Cadastre-se para continuar com esse ${TranslateContentType(
+                          contentType
+                        ).slice(0, -1)}.`
+                      : `Use esse ${TranslateContentType(contentType).slice(0, -1)} em um workspace.`}
                   </div>
                 }
                 trigger={

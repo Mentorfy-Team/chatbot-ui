@@ -1,6 +1,7 @@
 import { ContentType } from "@/types"
 import { FC } from "react"
 import { Input } from "../ui/input"
+import { TranslateContentType } from "./sidebar-data-list"
 
 interface SidebarSearchProps {
   contentType: ContentType
@@ -15,7 +16,7 @@ export const SidebarSearch: FC<SidebarSearchProps> = ({
 }) => {
   return (
     <Input
-      placeholder={`Search ${contentType}...`}
+      placeholder={`Pesquisar ${TranslateContentType(contentType)}...`}
       value={searchTerm}
       onChange={e => setSearchTerm(e.target.value)}
     />

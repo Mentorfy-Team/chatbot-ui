@@ -1,4 +1,3 @@
-import { generateLocalEmbedding } from "@/lib/generate-local-embedding"
 import { processDocX } from "@/lib/retrieval/processing"
 import { checkApiKey, getServerProfile } from "@/lib/server/server-chat-helpers"
 import { Database } from "@/supabase/types"
@@ -61,27 +60,14 @@ export async function POST(req: Request) {
       })
     }
 
-    if (embeddingsProvider === "openai") {
-      const response = await openai.embeddings.create({
-        model: "text-embedding-ada-002",
-        input: chunks.map(chunk => chunk.content)
-      })
+    const response = await openai.embeddings.create({
+      model: "text-embedding-ada-002",
+      input: chunks.map(chunk => chunk.content)
+    })
 
-      embeddings = response.data.map((item: any) => {
-        return item.embedding
-      })
-    } else if (embeddingsProvider === "local") {
-      const embeddingPromises = chunks.map(async chunk => {
-        try {
-          return await generateLocalEmbedding(chunk.content)
-        } catch (error) {
-          console.error(`Error generating embedding for chunk: ${chunk}`, error)
-          return null
-        }
-      })
-
-      embeddings = await Promise.all(embeddingPromises)
-    }
+    embeddings = response.data.map((item: any) => {
+      return item.embedding
+    })
 
     const file_items = chunks.map((chunk, index) => ({
       file_id: fileId,

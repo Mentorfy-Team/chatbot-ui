@@ -219,7 +219,7 @@ export const SidebarDataList: FC<SidebarDataListProps> = ({
         {data.length === 0 && (
           <div className="flex grow flex-col items-center justify-center">
             <div className=" text-centertext-muted-foreground p-8 text-lg italic">
-              No {contentType}.
+              Sem {TranslateContentType(contentType)}.
             </div>
           </div>
         )}
@@ -331,4 +331,25 @@ export const SidebarDataList: FC<SidebarDataListProps> = ({
       />
     </>
   )
+}
+
+export const TranslateContentType = (value: ContentType) => {
+  switch (value.toLowerCase()) {
+    case "chats":
+      return "chats"
+    case "presets":
+      return "presets"
+    case "prompts":
+      return "prompts"
+    case "files":
+      return "arquivos"
+    case "collections":
+      return "Pastas"
+    case "assistants":
+      return "assistentes"
+    case "tools":
+      return "ferramentas"
+    default:
+      return ""
+  }
 }

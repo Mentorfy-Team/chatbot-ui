@@ -40,7 +40,7 @@ export const ChangePassword: FC<ChangePasswordProps> = () => {
 
         <Input
           id="password"
-          placeholder="New Password"
+          placeholder="Nova Senha"
           type="password"
           value={newPassword}
           onChange={e => setNewPassword(e.target.value)}
@@ -48,7 +48,7 @@ export const ChangePassword: FC<ChangePasswordProps> = () => {
 
         <Input
           id="confirmPassword"
-          placeholder="Confirm New Password"
+          placeholder="Confirmar Nova Senha"
           type="password"
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}

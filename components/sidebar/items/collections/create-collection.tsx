@@ -76,7 +76,7 @@ export const CreateCollection: FC<CreateCollectionProps> = ({
             <Label>Name</Label>
 
             <Input
-              placeholder="Collection name..."
+              placeholder="Nome da Pasta..."
               value={name}
               onChange={e => setName(e.target.value)}
               maxLength={COLLECTION_NAME_MAX}

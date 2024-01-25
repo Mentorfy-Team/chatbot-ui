@@ -12,6 +12,7 @@ import { Input } from "../ui/input"
 import { Tabs, TabsList, TabsTrigger } from "../ui/tabs"
 import { ModelIcon } from "./model-icon"
 import { ModelOption } from "./model-option"
+import { t } from "i18next"
 
 interface ModelSelectProps {
   selectedModelId: string
@@ -106,7 +107,7 @@ export const ModelSelect: FC<ModelSelectProps> = ({
       >
         {allModels.length === 0 ? (
           <div className="rounded text-sm font-bold">
-            Unlock models by entering API keys in your profile settings.
+            {t("models.no_models_available")}
           </div>
         ) : (
           <Button

@@ -40,7 +40,7 @@ export const ChatSettingsForm: FC<ChatSettingsFormProps> = ({
   return (
     <div className="space-y-3">
       <div className="space-y-1">
-        <Label>Model</Label>
+        <Label>Modelos</Label>
 
         <ModelSelect
           selectedModelId={chatSettings.model}
@@ -51,15 +51,21 @@ export const ChatSettingsForm: FC<ChatSettingsFormProps> = ({
       </div>
 
       <div className="space-y-1">
-        <Label>Prompt</Label>
+        <Label>Prompt (Contexto Inicial)</Label>
 
         <TextareaAutosize
           className="bg-background border-input border-2"
-          placeholder="You are a helpful AI assistant."
+          placeholder="Você é um assistente de IA útil."
           onValueChange={prompt => {
             onChangeChatSettings({ ...chatSettings, prompt })
           }}
-          value={chatSettings.prompt}
+          value={
+            chatSettings.prompt.includes(
+              "You are a friendly, helpful AI assistant."
+            )
+              ? "Você é um assistente de IA útil."
+              : chatSettings.prompt
+          }
           minRows={3}
           maxRows={6}
         />
@@ -119,7 +125,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
     <div className="mt-5">
       <div className="space-y-3">
         <Label className="flex items-center space-x-1">
-          <div>Temperature:</div>
+          <div>Temperatura:</div>
 
           <div>{chatSettings.temperature}</div>
         </Label>
@@ -140,7 +146,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
 
       <div className="mt-6 space-y-3">
         <Label className="flex items-center space-x-1">
-          <div>Context Length:</div>
+          <div>Tamanho do Contexto:</div>
 
           <div>{chatSettings.contextLength}</div>
         </Label>
@@ -170,14 +176,14 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
           }
         />
 
-        <Label>Chats Include Profile Context</Label>
+        <Label>Chats inclui perfil de contexto</Label>
 
         {showTooltip && (
           <WithTooltip
             delayDuration={0}
             display={
               <div className="w-[400px] p-3">
-                {profile?.profile_context || "No profile context."}
+                {profile?.profile_context || "Sem contexto de perfil."}
               </div>
             }
             trigger={
@@ -198,7 +204,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
           }
         />
 
-        <Label>Chats Include Workspace Instructions</Label>
+        <Label>Chats inclui instruções do Workspace</Label>
 
         {showTooltip && (
           <WithTooltip
@@ -206,7 +212,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
             display={
               <div className="w-[400px] p-3">
                 {selectedWorkspace?.instructions ||
-                  "No workspace instructions."}
+                  "Sem instruções do workspace."}
               </div>
             }
             trigger={
@@ -216,7 +222,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
         )}
       </div>
 
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <Label>Embeddings Provider</Label>
 
         <Select
@@ -242,7 +248,7 @@ const AdvancedContent: FC<AdvancedContentProps> = ({
             )}
           </SelectContent>
         </Select>
-      </div>
+      </div> */}
     </div>
   )
 }

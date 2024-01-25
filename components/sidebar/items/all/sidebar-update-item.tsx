@@ -616,11 +616,11 @@ export const SidebarUpdateItem: FC<SidebarUpdateItemProps> = ({
 
           <div className="flex grow justify-end space-x-2">
             <Button variant="outline" onClick={() => setIsOpen(false)}>
-              Cancel
+              Cancelar
             </Button>
 
             <Button ref={buttonRef} onClick={handleUpdate}>
-              Save
+              Salvar
             </Button>
           </div>
         </SheetFooter>

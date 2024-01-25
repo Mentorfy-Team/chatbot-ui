@@ -22,29 +22,29 @@ export const ChatSecondaryButtons: FC<ChatSecondaryButtonsProps> = ({}) => {
                 <div className="text-xl font-bold">Chat Info</div>
 
                 <div className="mt-2 space-y-2">
-                  <div>Model: {selectedChat.model}</div>
+                  <div>Modelo: {selectedChat.model}</div>
                   <div>Prompt: {selectedChat.prompt}</div>
 
-                  <div>Temperature: {selectedChat.temperature}</div>
-                  <div>Context Length: {selectedChat.context_length}</div>
+                  <div>Temperatura: {selectedChat.temperature}</div>
+                  <div>Tamanho do Contexto: {selectedChat.context_length}</div>
 
                   <div>
-                    Profile Context:{" "}
+                    Contexto de Perfil:{" "}
                     {selectedChat.include_profile_context
                       ? "Enabled"
                       : "Disabled"}
                   </div>
                   <div>
                     {" "}
-                    Workspace Instructions:{" "}
+                    Instruções do Workspace:{" "}
                     {selectedChat.include_workspace_instructions
                       ? "Enabled"
                       : "Disabled"}
                   </div>
 
-                  <div>
+                  {/* <div>
                     Embeddings Provider: {selectedChat.embeddings_provider}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             }
@@ -60,7 +60,7 @@ export const ChatSecondaryButtons: FC<ChatSecondaryButtonsProps> = ({}) => {
 
           <WithTooltip
             delayDuration={200}
-            display={<div>Start a new chat</div>}
+            display={<div>Iniciar novo chat</div>}
             trigger={
               <div className="mt-1">
                 <IconMessagePlus

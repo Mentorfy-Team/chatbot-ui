@@ -5,6 +5,7 @@ import { ScreenLoader } from "@/components/ui/screen-loader"
 import { supabase } from "@/lib/supabase/browser-client"
 import { ContentType, DataItemType } from "@/types"
 import { FC, useEffect, useState } from "react"
+import { TranslateContentType } from "../sidebar/sidebar-data-list"
 
 interface SharePageProps {
   contentType: ContentType
@@ -52,8 +53,10 @@ export default function SharePage({
   if (!item) {
     return (
       <div className="flex size-full items-center justify-center text-4xl">
-        {contentType.slice(0, -1).charAt(0).toUpperCase() +
-          contentType.slice(1, -1)}{" "}
+        {TranslateContentType(contentType)
+          .slice(0, -1)
+          .charAt(0)
+          .toUpperCase() + TranslateContentType(contentType).slice(1, -1)}{" "}
         not found.
       </div>
     )

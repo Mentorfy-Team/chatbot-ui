@@ -183,7 +183,7 @@ export const AssistantItem: FC<AssistantItemProps> = ({ assistant }) => {
             <Label>Name</Label>
 
             <Input
-              placeholder="Assistant name..."
+              placeholder="Nome do assistente..."
               value={name}
               onChange={e => setName(e.target.value)}
               maxLength={ASSISTANT_NAME_MAX}

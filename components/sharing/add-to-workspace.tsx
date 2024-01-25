@@ -199,7 +199,7 @@ export const AddToWorkspace: FC<AddToWorkspaceProps> = ({
       <CommandInput placeholder="Search workspaces..." />
 
       <CommandList className="flex flex-col">
-        <CommandEmpty>No workspaces found.</CommandEmpty>
+        <CommandEmpty>Nenhum workspace encontrado</CommandEmpty>
 
         <CommandGroup className="mt-1 flex flex-col">
           {workspaces.map(workspace => (
@@ -208,7 +208,7 @@ export const AddToWorkspace: FC<AddToWorkspaceProps> = ({
               className="w-full cursor-pointer hover:opacity-50"
               onSelect={() => handleAddToWorkspace(workspace.id)}
             >
-              <div className="w-full">Add to {workspace.name}</div>
+              <div className="w-full">Adicionar à {workspace.name}</div>
             </CommandItem>
           ))}
         </CommandGroup>

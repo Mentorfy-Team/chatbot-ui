@@ -61,12 +61,12 @@ export const DeleteWorkspace: FC<DeleteWorkspaceProps> = ({
   return (
     <Dialog open={showWorkspaceDialog} onOpenChange={setShowWorkspaceDialog}>
       <DialogTrigger asChild>
-        <Button variant="destructive">Delete</Button>
+        <Button variant="destructive">Deletar</Button>
       </DialogTrigger>
 
       <DialogContent onKeyDown={handleKeyDown}>
         <DialogHeader>
-          <DialogTitle>Delete {workspace.name}</DialogTitle>
+          <DialogTitle>Deletar {workspace.name}</DialogTitle>
 
           <DialogDescription className="space-y-1">
             WARNING: Deleting a workspace will delete all of its data.
@@ -82,7 +82,7 @@ export const DeleteWorkspace: FC<DeleteWorkspaceProps> = ({
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowWorkspaceDialog(false)}>
-            Cancel
+            Cancelar
           </Button>
 
           <Button
@@ -91,7 +91,7 @@ export const DeleteWorkspace: FC<DeleteWorkspaceProps> = ({
             onClick={handleDeleteWorkspace}
             disabled={name !== workspace.name}
           >
-            Delete
+            Deletar
           </Button>
         </DialogFooter>
       </DialogContent>

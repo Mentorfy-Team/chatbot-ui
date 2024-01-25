@@ -12,8 +12,7 @@ export const Brand: FC<BrandProps> = ({ theme = "dark" }) => {
   return (
     <Link
       className="flex cursor-pointer flex-col items-center hover:opacity-50"
-      href="https://www.chatbotui.com"
-      target="_blank"
+      href="#"
       rel="noopener noreferrer"
     >
       <div className="mb-2">

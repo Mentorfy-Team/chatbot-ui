@@ -153,27 +153,27 @@ export const WorkspaceSettings: FC<WorkspaceSettingsProps> = ({}) => {
         <div className="grow">
           <SheetHeader>
             <SheetTitle className="flex items-center justify-between">
-              Workspace Settings
+              Configuração do Workspace
               {selectedWorkspace?.is_home && <IconHome />}
             </SheetTitle>
 
             {selectedWorkspace?.is_home && (
               <div className="text-sm font-light">
-                This is your home workspace.
+                Esse é o seu workspace principal.
               </div>
             )}
           </SheetHeader>
 
           <Tabs defaultValue="main">
             <TabsList className="mt-4 grid w-full grid-cols-2">
-              <TabsTrigger value="main">Main</TabsTrigger>
-              <TabsTrigger value="defaults">Defaults</TabsTrigger>
+              <TabsTrigger value="main">Principal</TabsTrigger>
+              <TabsTrigger value="defaults">Padrões</TabsTrigger>
             </TabsList>
 
             <TabsContent className="mt-4 space-y-4" value="main">
               <>
                 <div className="space-y-1">
-                  <Label>Name</Label>
+                  <Label>Nome</Label>
 
                   <Input
                     placeholder="Name..."
@@ -183,10 +183,10 @@ export const WorkspaceSettings: FC<WorkspaceSettingsProps> = ({}) => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label>Description</Label>
+                  <Label>Descrição</Label>
 
                   <Input
-                    placeholder="Description... (optional)"
+                    placeholder="Descrição... (optional)"
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                   />
@@ -195,11 +195,11 @@ export const WorkspaceSettings: FC<WorkspaceSettingsProps> = ({}) => {
 
               <div className="space-y-1">
                 <Label>
-                  How would you like the AI to respond in this workspace?
+                  Como você gostaria que a IA respondesse neste workspace?
                 </Label>
 
                 <TextareaAutosize
-                  placeholder="Instructions... (optional)"
+                  placeholder="Instruções... (optional)"
                   value={instructions}
                   onValueChange={setInstructions}
                   minRows={5}
@@ -238,11 +238,11 @@ export const WorkspaceSettings: FC<WorkspaceSettingsProps> = ({}) => {
 
           <div className="space-x-2">
             <Button variant="ghost" onClick={() => setIsOpen(false)}>
-              Cancel
+              Cancelar
             </Button>
 
             <Button ref={buttonRef} onClick={handleSave}>
-              Save
+              Salvar
             </Button>
           </div>
         </div>

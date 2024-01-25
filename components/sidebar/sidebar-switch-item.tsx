@@ -2,6 +2,7 @@ import { ContentType } from "@/types"
 import { FC } from "react"
 import { TabsTrigger } from "../ui/tabs"
 import { WithTooltip } from "../ui/with-tooltip"
+import { TranslateContentType } from "./sidebar-data-list"
 
 interface SidebarSwitchItemProps {
   contentType: ContentType
@@ -17,7 +18,10 @@ export const SidebarSwitchItem: FC<SidebarSwitchItemProps> = ({
   return (
     <WithTooltip
       display={
-        <div>{contentType[0].toUpperCase() + contentType.substring(1)}</div>
+        <div>
+          {TranslateContentType(contentType)[0].toUpperCase() +
+            TranslateContentType(contentType).substring(1)}
+        </div>
       }
       trigger={
         <TabsTrigger

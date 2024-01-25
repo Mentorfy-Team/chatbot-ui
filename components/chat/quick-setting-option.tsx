@@ -49,7 +49,7 @@ export const QuickSettingOption: FC<QuickSettingOptionProps> = ({
         <div className="text-md font-bold">{item.name}</div>
 
         <div className="text-sm font-light">
-          {item.description || "No description."}
+          {item.description || "Sem descrição"}
         </div>
       </div>
 

@@ -63,11 +63,11 @@ export const UpdateFolder: FC<UpdateFolderProps> = ({ folder }) => {
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowFolderDialog(false)}>
-            Cancel
+            Cancelar
           </Button>
 
           <Button ref={buttonRef} onClick={handleUpdateFolder}>
-            Save
+            Salvar
           </Button>
         </DialogFooter>
       </DialogContent>

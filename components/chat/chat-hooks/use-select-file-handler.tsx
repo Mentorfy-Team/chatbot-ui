@@ -59,6 +59,7 @@ export const useSelectFileHandler = () => {
       if (file.type.includes("image")) {
         reader.readAsDataURL(file)
       } else if (ACCEPTED_FILE_TYPES.split(",").includes(file.type)) {
+        console.log("file.type", file.type)
         if (simplifiedFileType.includes("vnd.adobe.pdf")) {
           simplifiedFileType = "pdf"
         } else if (

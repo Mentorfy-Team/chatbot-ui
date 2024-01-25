@@ -196,9 +196,9 @@ export default function SetupPage() {
       case 3:
         return (
           <StepContainer
-            stepDescription="You are all set up!"
+            stepDescription="Você já está com tudo pronto!"
             stepNum={currentStep}
-            stepTitle="Setup Complete"
+            stepTitle="Setup Completo"
             onShouldProceed={handleShouldProceed}
             showNextButton={true}
             showBackButton={true}

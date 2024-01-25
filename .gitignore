@@ -41,3 +41,5 @@ seed.sql
 tool-schemas
 
 pnpm-lock.yaml
+
+package-lock.json

@@ -273,7 +273,7 @@ export const Import: FC<ImportProps> = ({}) => {
 
             <DialogFooter>
               <Button variant="ghost" onClick={handleCancel}>
-                Cancel
+                Cancelar
               </Button>
 
               <Button
@@ -281,7 +281,7 @@ export const Import: FC<ImportProps> = ({}) => {
                 onClick={handleSaveData}
                 disabled={importList.length === 0}
               >
-                Save Data
+                Salvar Informações
               </Button>
             </DialogFooter>
           </DialogContent>

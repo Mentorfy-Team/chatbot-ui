@@ -115,7 +115,7 @@ export const useChatHandler = () => {
           "gpt-4-1106-preview") as LLMID,
         prompt:
           selectedWorkspace.default_prompt ||
-          "You are a friendly, helpful AI assistant.",
+          "Você é um assistente de IA útil.",
         temperature: selectedWorkspace.default_temperature || 0.5,
         contextLength: selectedWorkspace.default_context_length || 4096,
         includeProfileContext:

@@ -313,7 +313,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
         <div className="grow">
           <SheetHeader>
             <SheetTitle className="flex items-center justify-between space-x-2">
-              <div>User Settings</div>
+              <div>Configuração de Usuário</div>
 
               <Button
                 tabIndex={-1}
@@ -322,21 +322,21 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                 onClick={handleSignOut}
               >
                 <IconLogout className="mr-1" size={20} />
-                Logout
+                Sair
               </Button>
             </SheetTitle>
           </SheetHeader>
 
           <Tabs defaultValue="profile">
             <TabsList className="mt-4 grid w-full grid-cols-2">
-              <TabsTrigger value="profile">Profile</TabsTrigger>
+              <TabsTrigger value="profile">Perfil</TabsTrigger>
               <TabsTrigger value="keys">API Keys</TabsTrigger>
             </TabsList>
 
             <TabsContent className="mt-4 space-y-4" value="profile">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
-                  <Label>Username</Label>
+                  <Label>Nome de Usuário</Label>
 
                   <div className="text-xs">
                     {username !== profile.username ? (
@@ -352,7 +352,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                 <div className="relative">
                   <Input
                     className="pr-10"
-                    placeholder="Username..."
+                    placeholder="Nome de Usuário..."
                     value={username}
                     onChange={e => {
                       setUsername(e.target.value)
@@ -382,7 +382,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
               </div>
 
               <div className="space-y-1">
-                <Label>Profile Image</Label>
+                <Label>Imagem de Perfil</Label>
 
                 <ImagePicker
                   src={profileImageSrc}
@@ -395,10 +395,10 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
               </div>
 
               <div className="space-y-1">
-                <Label>Chat Display Name</Label>
+                <Label>Nome mostrado no chat</Label>
 
                 <Input
-                  placeholder="Chat display name..."
+                  placeholder="Nome de apresentação no chat..."
                   value={displayName}
                   onChange={e => setDisplayName(e.target.value)}
                   maxLength={PROFILE_DISPLAY_NAME_MAX}
@@ -407,8 +407,8 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
 
               <div className="space-y-1">
                 <Label className="text-sm">
-                  What would you like the AI to know about you to provide better
-                  responses?
+                  O que você gostaria que a IA soubesse sobre você para fornecer
+                  respostas melhores?
                 </Label>
 
                 <TextareaAutosize
@@ -709,7 +709,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
           <div className="flex items-center space-x-1">
             <ThemeSwitcher />
 
-            <WithTooltip
+            {/* <WithTooltip
               display={
                 <div>
                   Download Chatbot UI 1.0 data as JSON. Import coming soon!
@@ -722,16 +722,16 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                   onClick={exportLocalStorageAsJSON}
                 />
               }
-            />
+            /> */}
           </div>
 
           <div className="ml-auto space-x-2">
             <Button variant="ghost" onClick={() => setIsOpen(false)}>
-              Cancel
+              Cancelar
             </Button>
 
             <Button ref={buttonRef} onClick={handleSave}>
-              Save
+              Salvar
             </Button>
           </div>
         </div>

@@ -358,11 +358,11 @@ export const Message: FC<MessageProps> = ({
         {isEditing && (
           <div className="mt-4 flex justify-center space-x-2">
             <Button size="sm" onClick={handleSendEdit}>
-              Save & Send
+              Salvar e Enviar
             </Button>
 
             <Button size="sm" variant="outline" onClick={onCancelEdit}>
-              Cancel
+              Cancelar
             </Button>
           </div>
         )}

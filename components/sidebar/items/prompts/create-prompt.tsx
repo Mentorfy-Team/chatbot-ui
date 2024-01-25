@@ -43,7 +43,7 @@ export const CreatePrompt: FC<CreatePromptProps> = ({
             <Label>Name</Label>
 
             <Input
-              placeholder="Prompt name..."
+              placeholder="Nome do Prompt..."
               value={name}
               onChange={e => setName(e.target.value)}
               maxLength={PROMPT_NAME_MAX}

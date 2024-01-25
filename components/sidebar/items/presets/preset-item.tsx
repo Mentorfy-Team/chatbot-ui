@@ -49,7 +49,7 @@ export const PresetItem: FC<PresetItemProps> = ({ preset }) => {
             <Label>Name</Label>
 
             <Input
-              placeholder="Preset name..."
+              placeholder="Nome do Preset..."
               value={name}
               onChange={e => setName(e.target.value)}
               maxLength={PRESET_NAME_MAX}

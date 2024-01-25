@@ -44,7 +44,7 @@ export const WorkspaceSwitcher: FC<WorkspaceSwitcherProps> = ({}) => {
         selectedWorkspace.include_workspace_instructions,
       instructions: selectedWorkspace.instructions,
       is_home: false,
-      name: "New Workspace"
+      name: "Novo Workspace"
     })
 
     setWorkspaces([...workspaces, createdWorkspace])
@@ -102,7 +102,7 @@ export const WorkspaceSwitcher: FC<WorkspaceSwitcherProps> = ({}) => {
             onClick={handleCreateWorkspace}
           >
             <IconPlus />
-            <div className="ml-2">New Workspace</div>
+            <div className="ml-2">Novo Workspace</div>
           </Button>
 
           <Input

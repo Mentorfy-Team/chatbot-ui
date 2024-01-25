@@ -27,6 +27,7 @@ import { Tables, TablesInsert } from "@/supabase/types"
 import { ContentType } from "@/types"
 import { FC, useContext, useRef, useState } from "react"
 import { toast } from "sonner"
+import { TranslateContentType } from "../../sidebar-data-list"
 
 interface SidebarCreateItemProps {
   isOpen: boolean
@@ -221,8 +222,9 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
         <div className="grow">
           <SheetHeader>
             <SheetTitle className="text-2xl font-bold">
-              Create{" "}
-              {contentType.charAt(0).toUpperCase() + contentType.slice(1, -1)}
+              Criar{" "}
+              {TranslateContentType(contentType).charAt(0).toUpperCase() +
+                TranslateContentType(contentType).slice(1, -1)}
             </SheetTitle>
           </SheetHeader>
 
@@ -236,11 +238,11 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
               variant="outline"
               onClick={() => onOpenChange(false)}
             >
-              Cancel
+              Cancelar
             </Button>
 
             <Button disabled={creating} ref={buttonRef} onClick={handleCreate}>
-              {creating ? "Creating..." : "Create"}
+              {creating ? "Criando..." : "Criar"}
             </Button>
           </div>
         </SheetFooter>

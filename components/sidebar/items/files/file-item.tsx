@@ -49,7 +49,7 @@ export const FileItem: FC<FileItemProps> = ({ file }) => {
             <Label>Name</Label>
 
             <Input
-              placeholder="File name..."
+              placeholder="Nome do arquivo..."
               value={name}
               onChange={e => setName(e.target.value)}
               maxLength={FILE_NAME_MAX}

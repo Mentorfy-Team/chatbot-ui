@@ -11,6 +11,7 @@ import { CreateFile } from "./items/files/create-file"
 import { CreatePreset } from "./items/presets/create-preset"
 import { CreatePrompt } from "./items/prompts/create-prompt"
 import { CreateTool } from "./items/tools/create-tool"
+import { TranslateContentType } from "./sidebar-data-list"
 
 interface SidebarCreateButtonsProps {
   contentType: ContentType
@@ -39,7 +40,7 @@ export const SidebarCreateButtons: FC<SidebarCreateButtonsProps> = ({
     const createdFolder = await createFolder({
       user_id: profile.user_id,
       workspace_id: selectedWorkspace.id,
-      name: "New Folder",
+      name: "Nova Pasta",
       description: "",
       type: contentType
     })
@@ -92,9 +93,12 @@ export const SidebarCreateButtons: FC<SidebarCreateButtonsProps> = ({
     <div className="flex w-full space-x-2">
       <Button className="flex h-[36px] grow" onClick={getCreateFunction()}>
         <IconPlus className="mr-1" size={20} />
-        New{" "}
-        {contentType.charAt(0).toUpperCase() +
-          contentType.slice(1, contentType.length - 1)}
+        Novo(a){" "}
+        {TranslateContentType(contentType).charAt(0).toUpperCase() +
+          TranslateContentType(contentType).slice(
+            1,
+            TranslateContentType(contentType).length - 1
+          )}
       </Button>
 
       {hasData && (
