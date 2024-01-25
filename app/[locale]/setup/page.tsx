@@ -130,9 +130,9 @@ export default function SetupPage() {
       case 1:
         return (
           <StepContainer
-            stepDescription="Let's create your profile."
+            stepDescription="Vamos criar um perfil."
             stepNum={currentStep}
-            stepTitle="Welcome to Chatbot UI"
+            stepTitle="Bem vindo ao ChatAI"
             onShouldProceed={handleShouldProceed}
             showNextButton={!!(username && usernameAvailable)}
             showBackButton={false}

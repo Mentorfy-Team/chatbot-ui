@@ -113,8 +113,8 @@ export const ShareChat: FC<ShareChatProps> = ({
                 display={
                   <div>
                     {!user?.id
-                      ? `Sign up for Chatbot UI to continue this chat.`
-                      : "Continue this chat in a workspace."}
+                      ? `Cadastre-se para continuar este chat.`
+                      : "Continue esse chat em um workspace."}
                   </div>
                 }
                 trigger={
