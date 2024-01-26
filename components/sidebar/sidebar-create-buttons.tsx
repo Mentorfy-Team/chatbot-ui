@@ -89,11 +89,19 @@ export const SidebarCreateButtons: FC<SidebarCreateButtonsProps> = ({
     }
   }
 
+  const LastLetter =
+    TranslateContentType(contentType).slice(
+      TranslateContentType(contentType).length - 2,
+      TranslateContentType(contentType).length - 1
+    ) === "a"
+      ? "a"
+      : "o"
+
   return (
     <div className="flex w-full space-x-2">
       <Button className="flex h-[36px] grow" onClick={getCreateFunction()}>
         <IconPlus className="mr-1" size={20} />
-        Novo(a){" "}
+        Nov{LastLetter + " "}
         {TranslateContentType(contentType).charAt(0).toUpperCase() +
           TranslateContentType(contentType).slice(
             1,
