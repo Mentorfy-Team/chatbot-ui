@@ -106,7 +106,7 @@ export const ChatFilesDisplay: FC<ChatFilesDisplayProps> = ({}) => {
           >
             <RetrievalToggle />
 
-            <div>Hide files</div>
+            <div>Esconder arquivos</div>
 
             <div onClick={e => e.stopPropagation()}>
               <ChatRetrievalSettings />
@@ -235,7 +235,7 @@ export const ChatFilesDisplay: FC<ChatFilesDisplayProps> = ({}) => {
 
           <div>
             {" "}
-            View {combinedMessageFiles.length} file
+            Ver {combinedMessageFiles.length} arquivo
             {combinedMessageFiles.length > 1 ? "s" : ""}
           </div>
 
@@ -259,8 +259,8 @@ const RetrievalToggle = ({}) => {
         display={
           <div>
             {useRetrieval
-              ? "File retrieval is enabled on the selected files for this message. Click the indicator to disable."
-              : "Click the indicator to enable file retrieval for this message."}
+              ? "A recuperação de arquivos está habilitada nos arquivos selecionados para esta mensagem. Clique no indicador para desabilitar."
+              : "Clique no indicador para habilitar a recuperação de arquivos para esta mensagem."}
           </div>
         }
         trigger={
