@@ -4,12 +4,15 @@ import { Providers } from "@/components/utility/providers"
 import TranslationsProvider from "@/components/utility/translations-provider"
 import initTranslations from "@/lib/i18n"
 import { Database } from "@/supabase/types"
-import { createServerClient } from "@supabase/ssr"
+import { createBrowserClient, createServerClient } from "@supabase/ssr"
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { cookies } from "next/headers"
-import { ReactNode } from "react"
+import { ReactNode, useEffect } from "react"
 import "./globals.css"
+
+import zipy from "zipyai"
+import { ZipyProvider } from "./ZipyAI"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -58,6 +61,7 @@ export default async function RootLayout({
             locale={locale}
             resources={resources}
           >
+            <ZipyProvider />
             <Toaster richColors position="top-center" duration={3000} />
             <div className="bg-background text-foreground flex h-screen flex-col items-center">
               {session ? <GlobalState>{children}</GlobalState> : children}

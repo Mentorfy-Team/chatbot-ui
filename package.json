@@ -23,7 +23,8 @@
     "db-types": "supabase gen types typescript --local > supabase/types.ts",
     "db-pull": "supabase db remote commit",
     "db-push": "supabase db push",
-    "test": "jest"
+    "test": "jest",
+    "deploy:zipy": "zipy-cli-mentorfy --authKey 15256slvjs1lvsso85t7bni4oeonc2jh --dirname .next/static/chunks --apiKey 9db1fe8e --releaseVer 1.0.0"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.12.4",
@@ -100,6 +101,8 @@
     "sonner": "^1.3.1",
     "style-loader": "^3.3.4",
     "uuid": "^9.0.1",
+    "zipy-cli-mentorfy": "^0.0.2",
+    "zipyai": "^1.7.8",
     "zod": "^3.22.4"
   },
   "devDependencies": {

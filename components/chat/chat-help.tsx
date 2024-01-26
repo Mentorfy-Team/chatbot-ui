@@ -33,7 +33,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
       <DropdownMenuContent align="end">
         <DropdownMenuLabel className="flex items-center justify-between">
           <div className="flex space-x-2">
-            <Link
+            {/* <Link
               className="cursor-pointer hover:opacity-50"
               href="https://twitter.com/ChatbotUI"
               target="_blank"
@@ -49,7 +49,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               rel="noopener noreferrer"
             >
               <IconBrandGithub />
-            </Link>
+            </Link> */}
           </div>
 
           <div className="flex space-x-2">
@@ -69,7 +69,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Show Help</div>
+          <div>Mostrar Ajuda</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -84,7 +84,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Show Workspaces</div>
+          <div>Mostrar Workspaces</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -114,7 +114,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Focus Chat</div>
+          <div>Focar no Chat</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -144,7 +144,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Toggle Retrieval</div>
+          <div>Alternar Retrieval</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -159,7 +159,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Open Settings</div>
+          <div>Abrir configurações</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -174,7 +174,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Open Quick Settings</div>
+          <div>Abrir Configurações Rápidas</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
@@ -189,7 +189,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Toggle Sidebar</div>
+          <div>Alternar Barra Lateral</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-[1px] p-1 text-center">
               ⌘
