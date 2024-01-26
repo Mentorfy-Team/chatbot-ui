@@ -5,22 +5,22 @@ import { useEffect } from "react"
 import zipy from "zipyai"
 
 export const ZipyProvider = () => {
-  const supabase = createBrowserClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          const cookieStore = document.cookie
-          const value = `; ${cookieStore}`
-          const parts = value.split(`; ${name}=`)
-          if (parts.length === 2) return parts.pop()?.split(";").shift()
+  useEffect(() => {
+    const supabase = createBrowserClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          get(name: string) {
+            const cookieStore = document?.cookie
+            const value = `; ${cookieStore}`
+            const parts = value.split(`; ${name}=`)
+            if (parts.length === 2) return parts.pop()?.split(";").shift()
+          }
         }
       }
-    }
-  )
+    )
 
-  useEffect(() => {
     if (supabase)
       zipy
         .init("9db1fe8e", {
@@ -44,7 +44,7 @@ export const ZipyProvider = () => {
             })
           })
         })
-  }, [supabase])
+  }, [])
 
   return <></>
 }
