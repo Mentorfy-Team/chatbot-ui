@@ -21,28 +21,37 @@ export const ZipyProvider = () => {
       }
     )
 
+    const ZipyIdentifier = () => {
+      supabase.auth.getUser().then(async ({ data: userData, error }) => {
+        if (!userData.user || error) return
+        const user = userData.user
+
+        const { data } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("user_id", user.id)
+          .single()
+
+        zipy.identify(user.id, {
+          id: user.id,
+          email: user.email,
+          name: data?.display_name
+        })
+      })
+    }
+
+    supabase.auth.onAuthStateChange((_, session) => {
+      if (!session?.user) return
+      ZipyIdentifier()
+    })
+
     if (supabase)
       zipy
         .init("9db1fe8e", {
           releaseVer: process.env.NEXT_PUBLIC_VERSION ?? "0.0.0"
         })
         .then(() => {
-          supabase.auth.getUser().then(async ({ data: userData, error }) => {
-            if (!userData.user || error) return
-            const user = userData.user
-
-            const { data } = await supabase
-              .from("profiles")
-              .select("*")
-              .eq("user_id", user.id)
-              .single()
-
-            zipy.identify(user.id, {
-              id: user.id,
-              email: user.email,
-              name: data?.display_name
-            })
-          })
+          ZipyIdentifier()
         })
   }, [])
 

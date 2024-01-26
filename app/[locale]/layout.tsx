@@ -8,7 +8,7 @@ import { createBrowserClient, createServerClient } from "@supabase/ssr"
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { cookies } from "next/headers"
-import { ReactNode, useEffect } from "react"
+import { ReactNode } from "react"
 import "./globals.css"
 
 import zipy from "zipyai"
