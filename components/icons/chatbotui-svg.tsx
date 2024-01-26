@@ -8,7 +8,7 @@ interface ChatbotUISVGProps {
 export const ChatbotUISVG: FC<ChatbotUISVGProps> = ({ theme, scale = 1 }) => {
   return (
     <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 16 16" style={{ enableBackground: 'new 0 0 16 16' }} xmlSpace="preserve">
+      viewBox="0 0 16 16"  xmlSpace="preserve">
       <g>
         <defs>
           <rect id="SVGID_1_" width="16" height="16" />
