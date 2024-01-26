@@ -235,7 +235,7 @@ export const Message: FC<MessageProps> = ({
                       <div className="flex animate-pulse items-center space-x-2">
                         <IconFileText size={20} />
 
-                        <div>Searching files...</div>
+                        <div>Procurando arquivos...</div>
                       </div>
                     )
                   default:

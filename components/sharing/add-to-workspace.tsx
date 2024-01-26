@@ -196,7 +196,7 @@ export const AddToWorkspace: FC<AddToWorkspaceProps> = ({
 
   return (
     <Command>
-      <CommandInput placeholder="Search workspaces..." />
+      <CommandInput placeholder="Procurar workspaces..." />
 
       <CommandList className="flex flex-col">
         <CommandEmpty>Nenhum workspace encontrado</CommandEmpty>

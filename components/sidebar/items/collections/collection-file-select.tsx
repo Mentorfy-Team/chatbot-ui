@@ -76,7 +76,7 @@ export const CollectionFileSelect: FC<CollectionFileSelectProps> = ({
       >
         <Input
           ref={inputRef}
-          placeholder="Search files..."
+          placeholder="Procurar arquivo..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           onKeyDown={e => e.stopPropagation()}
