@@ -1,5 +1,5 @@
 import { ChatbotUIContext } from "@/context/context"
-import { LLM, LLMID } from "@/types"
+import { LLM, LLMID, ModelProvider } from "@/types"
 import { IconCheck, IconChevronDown } from "@tabler/icons-react"
 import { FC, useContext, useEffect, useRef, useState } from "react"
 import { Button } from "../ui/button"
@@ -25,6 +25,7 @@ export const ModelSelect: FC<ModelSelectProps> = ({
 }) => {
   const {
     profile,
+    models,
     availableHostedModels,
     availableLocalModels,
     availableOpenRouterModels
@@ -69,6 +70,14 @@ export const ModelSelect: FC<ModelSelectProps> = ({
   }
 
   const allModels = [
+    ...models.map(model => ({
+      modelId: model.model_id as LLMID,
+      modelName: model.name,
+      provider: "custom" as ModelProvider,
+      hostedId: model.id,
+      platformLink: "",
+      imageInput: false
+    })),
     ...availableHostedModels,
     ...availableLocalModels,
     ...availableOpenRouterModels
@@ -119,7 +128,7 @@ export const ModelSelect: FC<ModelSelectProps> = ({
               {selectedModel ? (
                 <>
                   <ModelIcon
-                    modelId={selectedModel?.modelId as LLMID}
+                    provider={selectedModel?.provider}
                     width={26}
                     height={26}
                   />

@@ -5,9 +5,10 @@ import {
   ChatSettings,
   LLM,
   MessageImage,
-  OpenRouterLLM
+  OpenRouterLLM,
+  WorkspaceImage
 } from "@/types"
-import { AssistantImage } from "@/types/assistant-image"
+import { AssistantImage } from "@/types/images/assistant-image"
 import { VALID_ENV_KEYS } from "@/types/valid-keys"
 import { Dispatch, SetStateAction, createContext } from "react"
 
@@ -27,6 +28,8 @@ interface ChatbotUIContext {
   setFiles: Dispatch<SetStateAction<Tables<"files">[]>>
   folders: Tables<"folders">[]
   setFolders: Dispatch<SetStateAction<Tables<"folders">[]>>
+  models: Tables<"models">[]
+  setModels: Dispatch<SetStateAction<Tables<"models">[]>>
   presets: Tables<"presets">[]
   setPresets: Dispatch<SetStateAction<Tables<"presets">[]>>
   prompts: Tables<"prompts">[]
@@ -49,6 +52,8 @@ interface ChatbotUIContext {
   // WORKSPACE STORE
   selectedWorkspace: Tables<"workspaces"> | null
   setSelectedWorkspace: Dispatch<SetStateAction<Tables<"workspaces"> | null>>
+  workspaceImages: WorkspaceImage[]
+  setWorkspaceImages: Dispatch<SetStateAction<WorkspaceImage[]>>
 
   // PRESET STORE
   selectedPreset: Tables<"presets"> | null
@@ -143,6 +148,8 @@ export const ChatbotUIContext = createContext<ChatbotUIContext>({
   setFiles: () => {},
   folders: [],
   setFolders: () => {},
+  models: [],
+  setModels: () => {},
   presets: [],
   setPresets: () => {},
   prompts: [],
@@ -165,6 +172,8 @@ export const ChatbotUIContext = createContext<ChatbotUIContext>({
   // WORKSPACE STORE
   selectedWorkspace: null,
   setSelectedWorkspace: () => {},
+  workspaceImages: [],
+  setWorkspaceImages: () => {},
 
   // PRESET STORE
   selectedPreset: null,

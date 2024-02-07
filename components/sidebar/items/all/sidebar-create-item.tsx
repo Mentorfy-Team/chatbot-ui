@@ -15,6 +15,7 @@ import { createChat } from "@/db/chats"
 import { createCollectionFiles } from "@/db/collection-files"
 import { createCollection } from "@/db/collections"
 import { createFileBasedOnExtension } from "@/db/files"
+import { createModel } from "@/db/models"
 import { createPreset } from "@/db/presets"
 import { createPrompt } from "@/db/prompts"
 import {
@@ -55,7 +56,8 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
     setCollections,
     setAssistants,
     setAssistantImages,
-    setTools
+    setTools,
+    setModels
   } = useContext(ChatbotUIContext)
 
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -121,7 +123,7 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
       if (image) {
         const filePath = await uploadAssistantImage(createdAssistant, image)
 
-        const updatedAssistant = await updateAssistant(createdAssistant.id, {
+        updatedAssistant = await updateAssistant(createdAssistant.id, {
           image_path: filePath
         })
 
@@ -168,7 +170,8 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
 
       return updatedAssistant
     },
-    tools: createTool
+    tools: createTool,
+    models: createModel
   }
 
   const stateUpdateFunctions = {
@@ -178,7 +181,8 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
     files: setFiles,
     collections: setCollections,
     assistants: setAssistants,
-    tools: setTools
+    tools: setTools,
+    models: setModels
   }
 
   const handleCreate = async () => {

@@ -7,17 +7,27 @@ interface ChatbotUISVGProps {
 
 export const ChatbotUISVG: FC<ChatbotUISVGProps> = ({ theme, scale = 1 }) => {
   return (
-    <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 16 16"  xmlSpace="preserve">
+    <svg
+      version="1.1"
+      id="Camada_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 16 16"
+      xmlSpace="preserve"
+    >
       <g>
         <defs>
           <rect id="SVGID_1_" width="16" height="16" />
         </defs>
         <clipPath id="SVGID_2_">
-          <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
+          <use xlinkHref="#SVGID_1_" style={{ overflow: "visible" }} />
         </clipPath>
         <g className="st0">
-          <path className="st1" d="M8.3,11.9c-0.3-0.2-0.5-0.4-0.7-0.6c-0.1-0.1-0.2-0.2-0.4-0.3c-0.6-0.4-1.1-0.1-1.4,0.9
+          <path
+            className="st1"
+            d="M8.3,11.9c-0.3-0.2-0.5-0.4-0.7-0.6c-0.1-0.1-0.2-0.2-0.4-0.3c-0.6-0.4-1.1-0.1-1.4,0.9
                         c-0.2-0.9-0.6-0.6-0.9-0.4c-0.7,0.4-1.3,0.7-2,1c0.2-0.2,0.5-0.5,0.7-0.7c0.2-0.2,0.4-0.3,0.5-0.5c0.4-0.7,0.9-1.2,1.6-1.4
                         C6,9.7,6.1,9.2,6.4,8.9C6.2,8.7,6.1,8.5,6,8.4C5.5,8,5.2,8.1,5,8.6C4.8,8.9,4.7,9.2,4.5,9.5C4.5,9,4.6,8.5,4.7,7.9
                         C4.1,8.5,3.6,9,3.1,9.5C2.8,9.3,2.5,9.1,2.2,8.9c0,0-0.1,0.1-0.1,0.1c0,0.4,0.2,0.8-0.1,1.1c-0.1,0,0,0.4,0,0.5
@@ -36,7 +46,8 @@ export const ChatbotUISVG: FC<ChatbotUISVGProps> = ({ theme, scale = 1 }) => {
                         c0,0,0-0.1,0-0.1c0.4-0.6,0.4-1.3,0.1-2c-0.1-0.3,0.1-0.7,0.2-1.1c0,0,0.1,0,0.1,0c-0.1,0-0.1-0.1-0.2-0.1C10,8.8,9.9,8.5,10.1,8
                         c0-0.1,0-0.4-0.1-0.5C9.3,6.6,8.6,5.7,8,4.8c0,0-0.1,0-0.1-0.1c-0.1,0.5-0.2,1-0.3,1.5c0,0.1,0,0.3,0.1,0.4C7.9,7,8.2,7.3,8.4,7.7
                         C8.2,7.5,7.9,7.4,7.6,7.3C7.1,8.1,7.3,8.8,7.9,9.4c0,0-0.1,0-0.1,0.1C7.5,9.3,7.3,9.1,7.1,9c-0.2,0.3-0.4,0.6-0.6,1
-                        C7.2,10.4,7.9,10.8,8.3,11.9z" />
+                        C7.2,10.4,7.9,10.8,8.3,11.9z"
+          />
         </g>
       </g>
     </svg>

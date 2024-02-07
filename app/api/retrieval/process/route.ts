@@ -70,7 +70,7 @@ export async function POST(req: Request) {
       openai = new OpenAI({
         apiKey: profile.azure_openai_api_key || "",
         baseURL: `${profile.azure_openai_endpoint}/openai/deployments/${profile.azure_openai_embeddings_id}`,
-        defaultQuery: { "api-version": "2023-07-01-preview" },
+        defaultQuery: { "api-version": "2023-12-01-preview" },
         defaultHeaders: { "api-key": profile.azure_openai_api_key }
       })
     } else {
@@ -80,14 +80,14 @@ export async function POST(req: Request) {
       })
     }
     console.log("### embeddingsProvider", embeddingsProvider)
-      const response = await openai.embeddings.create({
-        model: "text-embedding-ada-002",
-        input: chunks.map(chunk => chunk.content)
-      })
+    const response = await openai.embeddings.create({
+      model: "text-embedding-3-small",
+      input: chunks.map(chunk => chunk.content)
+    })
 
-      embeddings = response.data.map((item: any) => {
-        return item.embedding
-      })
+    embeddings = response.data.map((item: any) => {
+      return item.embedding
+    })
 
     const file_items = chunks.map((chunk, index) => ({
       file_id,

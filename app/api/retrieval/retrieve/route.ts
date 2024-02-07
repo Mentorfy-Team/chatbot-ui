@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       openai = new OpenAI({
         apiKey: profile.azure_openai_api_key || "",
         baseURL: `${profile.azure_openai_endpoint}/openai/deployments/${profile.azure_openai_embeddings_id}`,
-        defaultQuery: { "api-version": "2023-07-01-preview" },
+        defaultQuery: { "api-version": "2023-12-01-preview" },
         defaultHeaders: { "api-key": profile.azure_openai_api_key }
       })
     } else {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     }
 
     const response = await openai.embeddings.create({
-      model: "text-embedding-ada-002",
+      model: "text-embedding-3-small",
       input: userInput
     })
 

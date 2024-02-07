@@ -3,10 +3,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 })
 const withTM = require("next-transpile-modules")(["onnxruntime-node"])
 
-/** @type {import('next').NextConfig} */
+const withPWA = require("next-pwa")({
+  dest: "public"
+})
+
 module.exports = withBundleAnalyzer(
-  withTM({
-    reactStrictMode: false,
+  withPWA(
+      withTM({
+    reactStrictMode: true,
     webpack: (config, { dev, isServer }) => {
       if (!isServer) {
         config.module.rules.push({
@@ -44,5 +48,6 @@ module.exports = withBundleAnalyzer(
     experimental: {
       serverComponentsExternalPackages: ["sharp", "onnxruntime-node"]
     }
-  })
+    })
+  )
 )

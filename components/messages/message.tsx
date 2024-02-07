@@ -3,7 +3,7 @@ import { ChatbotUIContext } from "@/context/context"
 import { LLM_LIST } from "@/lib/models/llm/llm-list"
 import { cn } from "@/lib/utils"
 import { Tables } from "@/supabase/types"
-import { LLM, LLMID, MessageImage } from "@/types"
+import { LLM, LLMID, MessageImage, ModelProvider } from "@/types"
 import {
   IconBolt,
   IconCaretDownFilled,
@@ -19,7 +19,6 @@ import {
 import Image from "next/image"
 import { FC, useContext, useEffect, useRef, useState } from "react"
 import { ModelIcon } from "../models/model-icon"
-import { Avatar, AvatarImage } from "../ui/avatar"
 import { Button } from "../ui/button"
 import { FilePreview } from "../ui/file-preview"
 import { TextareaAutosize } from "../ui/textarea-autosize"
@@ -60,7 +59,8 @@ export const Message: FC<MessageProps> = ({
     chatImages,
     assistantImages,
     toolInUse,
-    files
+    files,
+    models
   } = useContext(ChatbotUIContext)
 
   const { handleSendMessage } = useChatHandler()
@@ -128,6 +128,14 @@ export const Message: FC<MessageProps> = ({
   }, [isEditing])
 
   const MODEL_DATA = [
+    ...models.map(model => ({
+      modelId: model.model_id as LLMID,
+      modelName: model.name,
+      provider: "custom" as ModelProvider,
+      hostedId: model.id,
+      platformLink: "",
+      imageInput: false
+    })),
     ...LLM_LIST,
     ...availableLocalModels,
     ...availableOpenRouterModels
@@ -136,6 +144,8 @@ export const Message: FC<MessageProps> = ({
   const selectedAssistantImage = assistantImages.find(
     image => image.path === selectedAssistant?.image_path
   )?.base64
+
+  const modelDetails = LLM_LIST.find(model => model.modelId === message.model)
 
   return (
     <div
@@ -189,10 +199,10 @@ export const Message: FC<MessageProps> = ({
                   )
                 ) : (
                   <WithTooltip
-                    display={<div>{MODEL_DATA.modelName}</div>}
+                    display={<div>{MODEL_DATA?.modelName}</div>}
                     trigger={
                       <ModelIcon
-                        modelId={message.model as LLMID}
+                        provider={modelDetails?.provider || "custom"}
                         height={ICON_SIZE}
                         width={ICON_SIZE}
                       />
@@ -200,9 +210,13 @@ export const Message: FC<MessageProps> = ({
                   />
                 )
               ) : profile?.image_url ? (
-                <Avatar className={`size-[28px] rounded`}>
-                  <AvatarImage src={profile?.image_url} />
-                </Avatar>
+                <Image
+                  className={`size-[28px] rounded`}
+                  src={profile?.image_url}
+                  height={28}
+                  width={28}
+                  alt="user image"
+                />
               ) : (
                 <IconMoodSmile
                   className="bg-primary text-secondary border-primary rounded border-[1px] p-1"

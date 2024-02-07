@@ -4,8 +4,8 @@ import { Providers } from "@/components/utility/providers"
 import TranslationsProvider from "@/components/utility/translations-provider"
 import initTranslations from "@/lib/i18n"
 import { Database } from "@/supabase/types"
-import { createBrowserClient, createServerClient } from "@supabase/ssr"
-import { Metadata } from "next"
+import { createServerClient } from "@supabase/ssr"
+import { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { cookies } from "next/headers"
 import { ReactNode } from "react"
@@ -15,6 +15,10 @@ import zipy from "zipyai"
 import { ZipyProvider } from "./ZipyAI"
 
 const inter = Inter({ subsets: ["latin"] })
+const APP_NAME = "ChatAI"
+const APP_DEFAULT_TITLE = "ChatAI"
+const APP_TITLE_TEMPLATE = "%s - ChatAI"
+const APP_DESCRIPTION = "ChatAI PWA!"
 
 interface RootLayoutProps {
   children: ReactNode
@@ -24,10 +28,43 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
+  applicationName: APP_NAME,
   title: {
-    template: "%s - ChatAI",
-    default: "ChatAI"
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE
+  },
+  description: APP_DESCRIPTION,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black",
+    title: APP_DEFAULT_TITLE
+    // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE
+    },
+    description: APP_DESCRIPTION
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE
+    },
+    description: APP_DESCRIPTION
   }
+}
+
+export const viewport: Viewport = {
+  themeColor: "#000000"
 }
 
 const i18nNamespaces = ["translation"]
