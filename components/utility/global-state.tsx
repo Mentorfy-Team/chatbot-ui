@@ -113,7 +113,7 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
   const [chatImages, setChatImages] = useState<MessageImage[]>([])
   const [newMessageFiles, setNewMessageFiles] = useState<ChatFile[]>([])
   const [newMessageImages, setNewMessageImages] = useState<MessageImage[]>([])
-  const [showFilesDisplay, setShowFilesDisplay] = useState<boolean>(false)
+  const [showFilesDisplay, setShowFilesDisplay] = useState<boolean>(true)
 
   // RETIEVAL STORE
   const [useRetrieval, setUseRetrieval] = useState<boolean>(true)
